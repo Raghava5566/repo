@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LearnFlow</title>
+    <meta name="description" content="Your learning dashboard.">
+    <!-- FontAwesome CDN for Logos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        
+        <!-- Modern Animated User Profile Sidebar -->
+        <aside class="sidebar modern-sidebar">
+            <!-- User Info Header -->
+            <div class="modern-user-info anim-item" style="--i:1;">
+                <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=150&auto=format&fit=crop&q=60" alt="Raghav's avatar" class="modern-avatar">
+                <div class="modern-user-text">
+                    <span class="modern-user-name">Raghav</span>
+                    <span class="modern-user-email">raghav@learnflow.app</span>
+                </div>
+            </div>
+
+            <div class="modern-divider anim-item" style="--i:2;"></div>
+
+            <!-- Navigation Links -->
+            <nav class="modern-nav-links" role="navigation">
+                <div class="nav-link modern-nav-item active anim-item" style="--i:3;" data-target="overview">
+                    <i class="fa-solid fa-house modern-nav-icon"></i>
+                    <span>Overview</span>
+                    <i class="fa-solid fa-chevron-right modern-nav-chevron"></i>
+                </div>
+                <div class="nav-link modern-nav-item anim-item" style="--i:4;" data-target="dsa">
+                    <i class="fa-solid fa-code modern-nav-icon"></i>
+                    <span>Advanced DSA</span>
+                    <i class="fa-solid fa-chevron-right modern-nav-chevron"></i>
+                </div>
+                <div class="nav-link modern-nav-item anim-item" style="--i:5;" data-target="aptitude">
+                    <i class="fa-solid fa-brain modern-nav-icon"></i>
+                    <span>Quant & Aptitude</span>
+                    <i class="fa-solid fa-chevron-right modern-nav-chevron"></i>
+                </div>
+                <div class="nav-link modern-nav-item anim-item" style="--i:6;" data-target="fundamentals">
+                    <i class="fa-solid fa-microchip modern-nav-icon"></i>
+                    <span>CS Fundamentals</span>
+                    <i class="fa-solid fa-chevron-right modern-nav-chevron"></i>
+                </div>
+                
+                <div class="modern-spacer anim-item" style="--i:7;"></div>
+
+                <div class="nav-link modern-nav-item anim-item" style="--i:8;" data-target="planner">
+                    <i class="fa-solid fa-list-check modern-nav-icon"></i>
+                    <span>Task Planner</span>
+                    <i class="fa-solid fa-chevron-right modern-nav-chevron"></i>
+                </div>
+                <div class="nav-link modern-nav-item anim-item" style="--i:9;" data-target="reading">
+                    <i class="fa-solid fa-book modern-nav-icon"></i>
+                    <span>Reading List</span>
+                    <i class="fa-solid fa-chevron-right modern-nav-chevron"></i>
+                </div>
+            </nav>
+
+            <!-- Logout Button -->
+            <div class="modern-logout anim-item" style="--i:10;">
+                <a href="login.html" class="modern-logout-btn">
+                    <i class="fa-solid fa-right-from-bracket modern-nav-icon"></i>
+                    <span>Log out</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- OVERVIEW SECTION -->
+            <section id="overview" class="section active">
+                <div class="topbar">
+                    <h2 class="page-title">Welcome back, Raghav</h2>
+                    <div class="date-display" id="currentDate">Date</div>
+                </div>
+
+                <!-- OVERVIEW CARDS WITH LOGOS -->
+                <div class="bento-grid">
+                    <div class="glass-panel stat-card dsa">
+                        <div class="stat-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div class="stat-info">
+                            <h4>DSA Progress</h4>
+                            <div class="h2">35%</div>
+                        </div>
+                    </div>
+                    <div class="glass-panel stat-card aptitude">
+                        <div class="stat-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="stat-info">
+                            <h4>Aptitude Progress</h4>
+                            <div class="h2">60%</div>
+                        </div>
+                    </div>
+                    <div class="glass-panel stat-card fundamentals">
+                        <div class="stat-icon"><i class="fa-solid fa-server"></i></div>
+                        <div class="stat-info">
+                            <h4>CS Fundamentals</h4>
+                            <div class="h2">20%</div>
+                        </div>
+                    </div>
+                    <div class="glass-panel stat-card tasks">
+                        <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+                        <div class="stat-info">
+                            <h4>Pending Tasks</h4>
+                            <div class="h2" id="pendingTasksCount">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="glass-panel">
+                        <h3 class="mb-1"><i class="fa-solid fa-triangle-exclamation" style="margin-right:0.5rem; color:var(--accent-aptitude)"></i> Priority Tasks</h3>
+                        <div id="dashTaskList" class="task-list"></div>
+                    </div>
+                    
+                    <div class="glass-panel">
+                        <h3 class="mb-1"><i class="fa-solid fa-chart-line" style="margin-right:0.5rem; color:var(--primary)"></i> Latest Activity</h3>
+                        <p class="text-muted text-md">Keep pushing your limits. Don't forget your mock tests on the weekend.</p>
+                        <div class="chart-area-placeholder">
+                            <i class="fa-solid fa-chart-bar" style="font-size: 2rem; margin-right: 0.5rem;"></i> Analytics Chart Area
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DSA SECTION -->
+            <section id="dsa" class="section">
+                <div class="topbar">
+                    <h2 class="page-title"><i class="fa-solid fa-code"></i> Data Structures & Algorithms</h2>
+                </div>
+                <div class="glass-panel mb-2">
+                    <h3>Progress Tracker</h3>
+                    <div class="progress-bar progress-bar-lg">
+                        <div class="progress-fill bg-accent-dsa" style="width: 35%;"></div>
+                    </div>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="glass-panel">
+                        <h3 class="mb-1"><i class="fa-solid fa-video" style="margin-right:0.5rem; color:var(--accent-fundamentals)"></i> Tutorials</h3>
+                        <div class="topic-list">
+                            <div class="topic-item">
+                                <span>Arrays & Strings</span>
+                                <a href="#" class="btn btn-secondary btn-small">Watch</a>
+                            </div>
+                            <div class="topic-item">
+                                <span>Dynamic Programming</span>
+                                <a href="#" class="btn btn-secondary btn-small">Watch</a>
+                            </div>
+                            <div class="topic-item">
+                                <span>Graph Theory</span>
+                                <a href="#" class="btn btn-secondary btn-small">Watch</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-panel">
+                        <h3 class="mb-1"><i class="fa-solid fa-dumbbell" style="margin-right:0.5rem; color:var(--secondary)"></i> Practice Problems</h3>
+                         <div class="topic-list">
+                            <div class="topic-item">
+                                <span>Two Sum (Easy)</span>
+                                <a href="#" class="btn btn-primary btn-small">Solve</a>
+                            </div>
+                            <div class="topic-item">
+                                <span>Longest Substring (Medium)</span>
+                                <a href="#" class="btn btn-primary btn-small">Solve</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APTITUDE SECTION -->
+            <section id="aptitude" class="section">
+                <div class="topbar">
+                    <h2 class="page-title"><i class="fa-solid fa-brain"></i> Quantitative & Aptitude</h2>
+                </div>
+                <div class="glass-panel mb-2">
+                    <h3>Mock Test Scores</h3>
+                    <div class="progress-bar progress-bar-lg">
+                        <div class="progress-fill bg-accent-aptitude" style="width: 60%;"></div>
+                    </div>
+                </div>
+                 <div class="glass-panel">
+                    <h3 class="mb-1"><i class="fa-solid fa-folder-open" style="margin-right:0.5rem; color:var(--accent-fundamentals)"></i> Available Topics</h3>
+                    <div class="topic-list">
+                        <div class="topic-item">
+                            <span>Time & Work</span>
+                            <div class="topic-actions">
+                                <span class="tag-mastered">Mastered</span>
+                            </div>
+                        </div>
+                        <div class="topic-item">
+                            <span>Permutations & Combinations</span>
+                            <div class="topic-actions">
+                                <a href="#" class="btn btn-secondary btn-small">Revise</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!-- FUNDAMENTALS SECTION -->
+            <section id="fundamentals" class="section">
+                <div class="topbar">
+                    <h2 class="page-title"><i class="fa-solid fa-microchip"></i> CS Fundamentals</h2>
+                </div>
+                 <div class="glass-panel mb-2">
+                    <h3>Syllabus Coverage</h3>
+                    <div class="progress-bar progress-bar-lg">
+                        <div class="progress-fill bg-accent-fundamentals" style="width: 20%;"></div>
+                    </div>
+                </div>
+                <div class="bento-grid">
+                    <!-- CARDS WITH LOGOS HERE -->
+                    <div class="glass-panel">
+                        <div style="font-size: 2rem; color: var(--accent-fundamentals); margin-bottom: 1rem;"><i class="fa-brands fa-linux"></i></div>
+                        <h3 class="mb-1">Operating Systems</h3>
+                        <p class="text-muted text-md mb-1">Processes, Threads, Concurrency, and Memory Management.</p>
+                        <button class="btn btn-secondary w-100">Open Module</button>
+                    </div>
+                    <div class="glass-panel">
+                        <div style="font-size: 2rem; color: var(--accent-dsa); margin-bottom: 1rem;"><i class="fa-solid fa-database"></i></div>
+                        <h3 class="mb-1">DBMS</h3>
+                        <p class="text-muted text-md mb-1">Normalization, SQL Queries, Transactions and ACID properties.</p>
+                        <button class="btn btn-secondary w-100">Open Module</button>
+                    </div>
+                    <div class="glass-panel">
+                        <div style="font-size: 2rem; color: var(--accent-aptitude); margin-bottom: 1rem;"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3 class="mb-1">Computer Networks</h3>
+                        <p class="text-muted text-md mb-1">OSI Model, TCP/IP Suite, and network protocols.</p>
+                        <button class="btn btn-secondary w-100">Open Module</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TASK PLANNER SECTION -->
+            <section id="planner" class="section">
+                <div class="topbar">
+                    <h2 class="page-title"><i class="fa-solid fa-list-check"></i> Task Planner & Reminders</h2>
+                </div>
+                
+                <div class="glass-panel max-w-600">
+                    <form id="addTaskForm" class="add-task-form">
+                        <input type="text" id="newTaskInput" placeholder="Add a new task (e.g., Revise Graph Algorithms)" required>
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </form>
+                    <div id="taskList" class="task-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- READING LIST SECTION -->
+            <section id="reading" class="section">
+                <div class="topbar">
+                    <h2 class="page-title"><i class="fa-solid fa-book-open"></i> Reading List Tracker</h2>
+                </div>
+                
+                <div id="readingGrid" class="reading-grid">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

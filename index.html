@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnFlow - Modern Study Planner</title>
+    <meta name="description" content="A comprehensive, modern study planner and reading list tracker.">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="home-body">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- MODERN ANIMATED HEADER -->
+    <header class="app-header" id="appHeader">
+        <nav class="header-nav">
+            <!-- Brand -->
+            <div class="nav-brand" style="margin: 0; padding: 0.5rem; border-radius: 0.375rem; transition: background 0.2s;">
+                <i class="fa-solid fa-layer-group text-primary"></i> LearnFlow
+            </div>
+
+            <!-- Desktop Links -->
+            <div class="desktop-menu">
+                <a href="#about" class="nav-btn ghost">Features</a>
+                <a href="#pricing" class="nav-btn ghost">Pricing</a>
+                <a href="#about" class="nav-btn ghost">About</a>
+                <a href="login.html" class="nav-btn outline">Sign In</a>
+                <a href="login.html" class="nav-btn primary">Get Started</a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button class="mobile-toggle nav-btn outline icon-btn" id="mobileToggleBtn" aria-expanded="false" aria-label="Toggle menu">
+                <svg id="hamburgerIcon" class="menu-icon" viewBox="0 0 32 32" stroke-width="2.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="menu-path-1" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22" />
+                    <path class="menu-path-2" d="M7 16 27 16" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <div class="mobile-links">
+                    <a href="#about" class="nav-btn ghost align-start">Features</a>
+                    <a href="#pricing" class="nav-btn ghost align-start">Pricing</a>
+                    <a href="#about" class="nav-btn ghost align-start">About</a>
+                </div>
+                <div class="mobile-actions">
+                    <a href="login.html" class="nav-btn outline w-100 flex-center">Sign In</a>
+                    <a href="login.html" class="nav-btn primary w-100 flex-center">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="homepage-hero" style="padding-top: 6rem;">
+        <div class="hero-content">
+            <h1>Master Your Learning Journey</h1>
+            <p>Elevate your productivity with a beautifully crafted workspace designed for computer science students. Track DSA progress, aptitude mock tests, and your reading list all in one place.</p>
+            
+            <div style="display:flex; justify-content:center;">
+                <a href="login.html" class="btn btn-primary btn-large">Get Started</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="glass-panel stat-box stat-box-flex">
+                    <span class="stat-num">3+</span>
+                    <span>Core Subjects</span>
+                </div>
+                <div class="glass-panel stat-box stat-box-flex">
+                    <span class="stat-num">100%</span>
+                    <span>Offline Ready</span>
+                </div>
+                <div class="glass-panel stat-box stat-box-flex">
+                    <span class="stat-num">∞</span>
+                    <span>Growth Focus</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Prompt -->
+        <div class="scroll-prompt text-muted text-center mt-2" style="position: absolute; bottom: 2rem;">
+            <span>Learn More Below</span><br>
+            <i style="font-size: 1.5rem">↓</i>
+        </div>
+    </main>
+
+    <!-- Information Section -->
+    <section id="about" class="about-section">
+        <div class="about-header text-center mb-2">
+            <h2>Why Choose LearnFlow?</h2>
+            <p class="text-muted text-md" style="max-width: 600px; margin: 1rem auto 0;">Everything you need to land your dream tech job, organized in one powerful dashboard.</p>
+        </div>
+
+        <div class="about-grid">
+            <div class="glass-panel about-card">
+                <div class="about-icon bg-accent-dsa flex-center"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3 class="mb-1 mt-1">Advanced DSA</h3>
+                <p class="text-muted text-md">Visualize your progress across algorithmic concepts. Track leetcode problems, record your learning, and never forget a pattern.</p>
+            </div>
+            
+            <div class="glass-panel about-card">
+                <div class="about-icon bg-accent-aptitude flex-center"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3 class="mb-1 mt-1">Quant & Aptitude</h3>
+                <p class="text-muted text-md">Prepare for preliminary screening rounds with confidence. Monitor your mock test scores and master permutations, combinations and more.</p>
+            </div>
+            
+            <div class="glass-panel about-card">
+                <div class="about-icon bg-accent-fundamentals flex-center"><i class="fa-solid fa-server"></i></div>
+                <h3 class="mb-1 mt-1">CS Fundamentals</h3>
+                <p class="text-muted text-md">Organize your study material for OS, DBMS, and Networks. Quick access modules ensure your core concepts stay sharp for interviews.</p>
+            </div>
+            
+            <div class="glass-panel about-card">
+                <div class="about-icon bg-secondary flex-center"><i class="fa-solid fa-list-check"></i></div>
+                <h3 class="mb-1 mt-1">Task Planner</h3>
+                <p class="text-muted text-md">A seamless daily planner paired with a robust reading list. Track pages read daily so you finish your programming books efficiently.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <footer class="footer-cta text-center">
+        <h2>Ready to upgrade your focus?</h2>
+        <a href="login.html" class="btn btn-primary btn-large" style="margin-top: 1.5rem;">Join LearnFlow Today</a>
+    </footer>
+
+</body>
+</html>
